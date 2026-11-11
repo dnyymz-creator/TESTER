@@ -1,5 +1,5 @@
-.vscode/
-Thumbs.db
-Desktop.ini
+# Backups y archivos temporales
+backups/
+*.bak
 .DS_Store
-*.log
+Thumbs.db

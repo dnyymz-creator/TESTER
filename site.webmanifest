@@ -1,0 +1,31 @@
+{
+  "name": "Comisión Internacional de Derechos Humanos por la Igualdad de Género",
+  "short_name": "CIDHIG",
+  "description": "Organismo para la promoción, protección y defensa de los derechos humanos y la equidad sustantiva en México.",
+  "start_url": "/",
+  "display": "standalone",
+  "background_color": "#113227",
+  "theme_color": "#113227",
+  "icons": [
+    {
+      "src": "./images/icons/favicon-16x16.png",
+      "sizes": "16x16",
+      "type": "image/png"
+    },
+    {
+      "src": "./images/icons/favicon-32x32.png",
+      "sizes": "32x32",
+      "type": "image/png"
+    },
+    {
+      "src": "./images/icons/android-chrome-192x192.png",
+      "sizes": "192x192",
+      "type": "image/png"
+    },
+    {
+      "src": "./images/icons/android-chrome-512x512.png",
+      "sizes": "512x512",
+      "type": "image/png"
+    }
+  ]
+}

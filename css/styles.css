@@ -1,0 +1,1530 @@
+/* =========================================================
+   CIDHIG — Hoja de estilos institucional rediseñada
+   Estética estrictamente minimalista · Verde Nopal · Glassmorphism
+   ========================================================= */
+
+:root {
+  --verde-nopal: #113227;
+  --verde-nopal-deep: #0a2018;
+  --verde-nopal-light: #1b4d3b;
+  --verde-nopal-surface: #143b2e;
+  --verde-salvia-100: #e3ece6;
+  --oro-institucional: #C5A059;
+  --oro-dorado: #D4AF37;
+  --oro-light: #F3E5AB;
+  --blanco: #ffffff;
+  --gris-claro: #f8faf9;
+  --gris-contenedor: #f1f4f2;
+  --gris-borde: rgba(17, 50, 39, 0.09);
+  --tinta: #141716;
+  --tinta-suave: #4a5450;
+  --tinta-muted: #727e79;
+}
+
+/* Base */
+html {
+  margin: 0;
+  padding: 0;
+  font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+  background-color: var(--blanco);
+  color: var(--tinta);
+  scroll-behavior: smooth;
+  overflow-x: hidden;
+  overflow-y: scroll;
+}
+
+body {
+  margin: 0;
+  padding: 0;
+  font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+  background-color: var(--blanco);
+  color: var(--tinta);
+  min-height: 100%;
+  position: relative;
+}
+
+/* Scrollbar institucional elegante (Verde Nopal & Salvia) */
+::-webkit-scrollbar {
+  width: 10px;
+  height: 10px;
+}
+::-webkit-scrollbar-track {
+  background: #f1f4f2;
+}
+::-webkit-scrollbar-thumb {
+  background: #1b4d3b;
+  border-radius: 999px;
+  border: 2px solid #f1f4f2;
+}
+::-webkit-scrollbar-thumb:hover {
+  background: #113227;
+}
+* {
+  scrollbar-width: thin;
+  scrollbar-color: #1b4d3b #f1f4f2;
+}
+
+/* =========================================================
+   1. HERO INICIAL — PANTALLA DE PRESENTACIÓN INMERSIVA (100vh)
+   ========================================================= */
+#hero {
+  position: relative;
+  width: 100%;
+  min-height: 100vh;
+  min-height: 100dvh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  background-color: var(--verde-nopal);
+  box-sizing: border-box;
+  padding: 2rem 1.5rem;
+  z-index: 10;
+}
+
+.hero-bg-fx {
+  position: absolute;
+  inset: 0;
+  overflow: hidden;
+  pointer-events: none;
+  z-index: 1;
+}
+
+/* Fondo verde nopal sólido con sutil viñeta institucional */
+.hero-vignette {
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+  background: radial-gradient(circle at 50% 50%, rgba(27, 77, 59, 0.22) 0%, rgba(10, 32, 24, 0.45) 100%);
+  z-index: 1;
+}
+
+.hero-glow-soft {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: min(650px, 88vw);
+  height: min(650px, 88vw);
+  border-radius: 50%;
+  background: radial-gradient(circle, rgba(197, 160, 89, 0.08) 0%, rgba(27, 77, 59, 0.12) 45%, transparent 72%);
+  filter: blur(52px);
+  pointer-events: none;
+  z-index: 1;
+  animation: heroGlowBreathe 8s ease-in-out infinite alternate;
+}
+
+.hero-inner {
+  position: relative;
+  z-index: 2;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+  max-width: 980px;
+  width: 100%;
+  margin: auto 0;
+}
+
+.hero-logo-wrap {
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  animation: heroLogoEntrance 1.2s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+}
+
+.hero-logo-img {
+  display: block;
+  width: min(320px, 66vw);
+  max-width: 330px;
+  height: auto;
+  aspect-ratio: 1 / 1;
+  object-fit: contain;
+  filter: drop-shadow(0 20px 42px rgba(0, 0, 0, 0.42));
+  animation: heroLogoFloat 6s ease-in-out 1.2s infinite alternate;
+  user-select: none;
+  -webkit-user-drag: none;
+}
+
+.hero-text-wrap {
+  margin-top: 2rem;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  animation: heroTextEntrance 1.3s cubic-bezier(0.16, 1, 0.3, 1) 0.25s backwards;
+}
+
+/* COMISIÓN INTERNACIONAL DE DERECHOS HUMANOS (Dorado) */
+.hero-gold-title {
+  display: block;
+  font-size: clamp(0.78rem, 1.8vw, 1.05rem);
+  font-weight: 600;
+  letter-spacing: 0.22em;
+  text-transform: uppercase;
+  color: var(--oro-dorado);
+  margin: 0;
+  line-height: 1.3;
+  text-shadow: 0 2px 12px rgba(0, 0, 0, 0.35);
+}
+
+/* Por la Igualdad de Género (Blanco) */
+.hero-white-subtitle {
+  display: block;
+  font-size: clamp(1.75rem, 4.2vw, 3.25rem);
+  font-weight: 700;
+  color: #ffffff;
+  letter-spacing: -0.025em;
+  margin: 0.5rem 0 0 0;
+  line-height: 1.15;
+  text-shadow: 0 4px 20px rgba(0, 0, 0, 0.45);
+}
+
+.hero-gold-divider {
+  width: 64px;
+  height: 2px;
+  background: linear-gradient(90deg, transparent, var(--oro-dorado), transparent);
+  margin-top: 1.25rem;
+  border-radius: 999px;
+  opacity: 0.85;
+}
+
+/* CONTINUAR + Scroll Icon */
+.hero-scroll-btn {
+  position: absolute;
+  bottom: 28px;
+  left: 50%;
+  transform: translateX(-50%);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 8px;
+  text-decoration: none;
+  color: rgba(227, 236, 230, 0.85);
+  transition: transform 0.25s ease, color 0.25s ease, opacity 0.25s ease;
+  z-index: 10;
+  cursor: pointer;
+  animation: heroFadeIn 1.4s ease-out 0.8s backwards;
+}
+
+.hero-scroll-btn:hover {
+  color: #ffffff;
+  transform: translateX(-50%) translateY(3px);
+}
+
+.hero-scroll-text {
+  font-size: 0.72rem;
+  font-weight: 600;
+  letter-spacing: 0.26em;
+  text-transform: uppercase;
+  color: inherit;
+}
+
+.hero-scroll-mouse {
+  width: 22px;
+  height: 34px;
+  border-radius: 999px;
+  border: 2px solid currentColor;
+  position: relative;
+  display: flex;
+  justify-content: center;
+  opacity: 0.9;
+}
+
+.hero-scroll-dot {
+  width: 4px;
+  height: 8px;
+  border-radius: 999px;
+  background-color: var(--oro-dorado);
+  position: absolute;
+  top: 5px;
+  animation: heroScrollWheel 2s ease-in-out infinite;
+}
+
+.hero-scroll-chevron {
+  font-size: 18px !important;
+  color: inherit;
+  margin-top: -4px;
+  animation: heroChevronPulse 2s ease-in-out infinite;
+}
+
+/* =========================================================
+   2. NAVBAR FLOTANTE CON /GLASSMORPHISM
+   Solo visible al hacer scroll (animación fade-in hacia abajo)
+   ========================================================= */
+#navbar {
+  position: fixed;
+  top: 14px;
+  left: 50%;
+  right: auto;
+  width: min(1200px, calc(100% - 32px));
+  height: 70px;
+  z-index: 100;
+  /* Estado inicial: completamente oculto arriba */
+  transform: translate(-50%, -120%);
+  opacity: 0;
+  pointer-events: none;
+  visibility: hidden;
+  transition: transform 0.45s cubic-bezier(0.16, 1, 0.3, 1), opacity 0.4s ease, visibility 0.4s ease;
+
+  /* Glassmorphism Specification */
+  border-radius: 20px;
+  background: rgba(255, 255, 255, 0.84);
+  backdrop-filter: blur(20px) saturate(180%);
+  -webkit-backdrop-filter: blur(20px) saturate(180%);
+  border: 1px solid rgba(255, 255, 255, 0.85);
+  box-shadow:
+    0 16px 40px rgba(11, 32, 25, 0.08),
+    0 4px 12px rgba(11, 32, 25, 0.04),
+    inset 0 1px 0 rgba(255, 255, 255, 0.95),
+    inset 0 -1px 0 rgba(0, 0, 0, 0.04);
+  overflow: visible;
+  isolation: isolate;
+}
+
+/* Estado al hacer scroll: aparece con fade-in hacia abajo */
+#navbar.is-scrolled {
+  transform: translate(-50%, 0);
+  opacity: 1;
+  pointer-events: auto;
+  visibility: visible;
+}
+
+/* Specular edge highlight (masked border de luz según glass skill) */
+#navbar::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  border-radius: inherit;
+  padding: 1px;
+  background: linear-gradient(
+    135deg,
+    rgba(255, 255, 255, 0.95),
+    rgba(255, 255, 255, 0) 45%,
+    rgba(197, 160, 89, 0.35) 100%
+  );
+  -webkit-mask: linear-gradient(#000 0 0) content-box, linear-gradient(#000 0 0);
+  -webkit-mask-composite: xor;
+  mask-composite: exclude;
+  pointer-events: none;
+  z-index: 1;
+}
+
+/* Dithering noise para eliminar color banding */
+#navbar::after {
+  content: '';
+  position: absolute;
+  inset: 0;
+  border-radius: inherit;
+  pointer-events: none;
+  opacity: 0.035;
+  mix-blend-mode: overlay;
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='120' height='120'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='2'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E");
+  z-index: 1;
+}
+
+.navbar-container {
+  position: relative;
+  z-index: 2;
+  width: 100%;
+  height: 100%;
+  padding: 0 1.5rem;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  box-sizing: border-box;
+}
+
+.navbar-brand {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  text-decoration: none;
+}
+
+.navbar-logo {
+  height: 48px;
+  width: auto;
+  max-height: 48px;
+  object-fit: contain;
+  filter: drop-shadow(0 2px 4px rgba(0, 0, 0, 0.08));
+}
+
+.navbar-brand-text {
+  display: flex;
+  flex-direction: column;
+  line-height: 1;
+}
+
+.navbar-brand-acronym {
+  font-size: 1.15rem;
+  font-weight: 800;
+  color: var(--verde-nopal);
+  letter-spacing: -0.02em;
+}
+
+.navbar-brand-sub {
+  font-size: 0.68rem;
+  font-weight: 500;
+  color: var(--tinta-muted);
+  letter-spacing: 0.03em;
+  margin-top: 2px;
+}
+
+/* Enlaces de Navegación */
+.nav-link {
+  position: relative;
+  font-size: 0.9rem;
+  font-weight: 500;
+  color: var(--tinta-suave);
+  text-decoration: none;
+  padding: 0.5rem 0.25rem;
+  transition: color 0.2s ease, transform 0.2s ease;
+}
+
+.nav-link:hover {
+  color: var(--verde-nopal);
+  transform: translateY(-1px);
+}
+
+.nav-link::after {
+  content: '';
+  position: absolute;
+  left: 50%;
+  bottom: 0px;
+  width: 0;
+  height: 2px;
+  border-radius: 999px;
+  background-color: var(--oro-institucional);
+  transform: translateX(-50%);
+  transition: width 0.25s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.nav-link:hover::after,
+.nav-link.active::after {
+  width: 80%;
+}
+
+.nav-link-cta {
+  background-color: var(--verde-nopal);
+  color: #ffffff !important;
+  font-weight: 600;
+  padding: 0.55rem 1.35rem;
+  border-radius: 999px;
+  transition: all 0.25s ease;
+  box-shadow: 0 4px 12px rgba(17, 50, 39, 0.2);
+}
+
+.nav-link-cta::after {
+  display: none !important;
+}
+
+.nav-link-cta:hover {
+  background-color: var(--verde-nopal-surface);
+  transform: translateY(-2px);
+  box-shadow: 0 6px 18px rgba(17, 50, 39, 0.28);
+}
+
+/* =========================================================
+   SELECTOR DE IDIOMA BILINGÜE (ES | EN)
+   ========================================================= */
+.lang-switch-wrapper {
+  display: flex;
+  align-items: center;
+}
+
+.lang-toggle-btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 3px;
+  background: rgba(17, 50, 39, 0.05);
+  border: 1px solid rgba(17, 50, 39, 0.12);
+  border-radius: 999px;
+  padding: 4px 10px;
+  cursor: pointer;
+  transition: all 0.2s cubic-bezier(0.16, 1, 0.3, 1);
+  user-select: none;
+  font-family: inherit;
+  line-height: 1;
+  min-height: 32px;
+}
+
+.lang-toggle-btn:hover {
+  background: rgba(17, 50, 39, 0.1);
+  border-color: rgba(17, 50, 39, 0.24);
+  transform: translateY(-1px);
+}
+
+.lang-toggle-btn:active {
+  transform: scale(0.96);
+}
+
+.lang-opt {
+  font-size: 0.74rem;
+  font-weight: 700;
+  letter-spacing: 0.06em;
+  color: var(--tinta-muted);
+  transition: all 0.2s ease;
+  padding: 3px 6px;
+  border-radius: 999px;
+}
+
+.lang-opt.active {
+  color: #ffffff;
+  background-color: var(--verde-nopal);
+  box-shadow: 0 2px 6px rgba(17, 50, 39, 0.25);
+}
+
+.lang-divider {
+  font-size: 0.72rem;
+  font-weight: 400;
+  color: rgba(17, 50, 39, 0.25);
+  user-select: none;
+  margin: 0 1px;
+}
+
+/* Fila de idioma en drawer móvil */
+.mobile-lang-row {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 10px 14px;
+  margin-bottom: 8px;
+  border-radius: 14px;
+  background: rgba(17, 50, 39, 0.04);
+  border: 1px solid rgba(17, 50, 39, 0.08);
+}
+
+/* Botón Hamburguesa Móvil */
+.navbar-mobile-btn {
+  display: none;
+  background: transparent;
+  border: none;
+  cursor: pointer;
+  color: var(--verde-nopal);
+  padding: 8px;
+  border-radius: 10px;
+  transition: background 0.2s ease;
+}
+
+.navbar-mobile-btn:hover {
+  background: rgba(17, 50, 39, 0.06);
+}
+
+/* Menú Drawer Móvil con Glassmorphism */
+.mobile-drawer-glass {
+  position: absolute;
+  top: calc(100% + 8px);
+  left: 0;
+  right: 0;
+  background: rgba(255, 255, 255, 0.94);
+  backdrop-filter: blur(24px) saturate(180%);
+  -webkit-backdrop-filter: blur(24px) saturate(180%);
+  border: 1px solid rgba(255, 255, 255, 0.85);
+  border-radius: 20px;
+  box-shadow: 0 20px 48px rgba(11, 32, 25, 0.14);
+  padding: 1.25rem;
+  box-sizing: border-box;
+  animation: drawerSlideDown 0.3s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+}
+
+.mobile-nav-list {
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+}
+
+.mobile-nav-link {
+  font-size: 0.95rem;
+  font-weight: 600;
+  color: var(--tinta);
+  text-decoration: none;
+  padding: 0.75rem 1rem;
+  border-radius: 12px;
+  transition: background 0.2s ease, color 0.2s ease;
+}
+
+.mobile-nav-link:hover {
+  background: rgba(17, 50, 39, 0.06);
+  color: var(--verde-nopal);
+}
+
+.mobile-nav-link.mobile-cta {
+  background: var(--verde-nopal);
+  color: #ffffff;
+  text-align: center;
+  margin-top: 0.5rem;
+}
+
+/* =========================================================
+   3. SECCIONES INSTITUCIONALES (FONDOS BLANCOS / GRIS CLARO)
+   ========================================================= */
+.section-white {
+  background-color: var(--blanco);
+}
+
+.section-gray {
+  background-color: var(--gris-claro);
+}
+
+/* Botones de Redes Sociales Institucionales (Pill Minimalista) */
+.social-pill {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  padding: 0.55rem 1.15rem;
+  border-radius: 999px;
+  background-color: #ffffff;
+  border: 1px solid rgba(17, 50, 39, 0.12);
+  color: var(--tinta);
+  font-size: 0.8125rem;
+  font-weight: 600;
+  text-decoration: none;
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.04);
+  transition: all 0.25s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.social-pill:hover {
+  border-color: var(--verde-nopal);
+  background-color: var(--verde-salvia-100);
+  color: var(--verde-nopal);
+  transform: translateY(-2px);
+  box-shadow: 0 6px 16px rgba(17, 50, 39, 0.08);
+}
+
+.social-pill:active {
+  transform: translateY(0);
+}
+
+/* Tarjetas de Pilares Institucionales (Quiénes Somos) */
+.pillar-card {
+  background-color: #ffffff;
+  border: 1px solid rgba(17, 50, 39, 0.08);
+  border-radius: 20px;
+  padding: 1.75rem;
+  display: flex;
+  flex-direction: column;
+  gap: 0.75rem;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.02);
+  transition: transform 0.28s cubic-bezier(0.16, 1, 0.3, 1), box-shadow 0.28s ease, border-color 0.28s ease;
+}
+
+.pillar-card:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 14px 30px rgba(17, 50, 39, 0.07);
+  border-color: rgba(17, 50, 39, 0.2);
+}
+
+/* Tarjetas Limpias para Servicios / Acreditaciones */
+.clean-card {
+  position: relative;
+  background: #ffffff;
+  border: 1px solid var(--gris-borde);
+  border-radius: 22px;
+  padding: 2.25rem 2rem;
+  display: flex;
+  flex-direction: column;
+  transition: transform 0.32s cubic-bezier(0.16, 1, 0.3, 1), box-shadow 0.32s ease, border-color 0.32s ease;
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.025);
+  box-sizing: border-box;
+}
+
+.clean-card:hover {
+  transform: translateY(-6px);
+  box-shadow: 0 20px 45px rgba(17, 50, 39, 0.08);
+  border-color: rgba(197, 160, 89, 0.45);
+}
+
+.clean-card-icon {
+  width: 52px;
+  height: 52px;
+  border-radius: 16px;
+  background-color: var(--verde-salvia-100);
+  color: var(--verde-nopal);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-bottom: 1.5rem;
+  transition: background-color 0.25s ease, transform 0.25s ease;
+}
+
+.clean-card:hover .clean-card-icon {
+  background-color: var(--verde-nopal);
+  color: #ffffff;
+  transform: scale(1.05);
+}
+
+.clean-card-title {
+  font-size: 1.25rem;
+  font-weight: 700;
+  color: var(--tinta);
+  letter-spacing: -0.015em;
+  line-height: 1.3;
+  margin: 0 0 0.75rem 0;
+  transition: color 0.2s ease;
+}
+
+.clean-card:hover .clean-card-title {
+  color: var(--verde-nopal);
+}
+
+.clean-card-text {
+  font-size: 0.95rem;
+  color: var(--tinta-suave);
+  line-height: 1.6;
+  margin: 0 0 1.5rem 0;
+}
+
+.clean-card-badge {
+  margin-top: auto;
+  align-self: flex-start;
+  font-size: 0.75rem;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  padding: 0.35rem 0.85rem;
+  border-radius: 999px;
+  background-color: rgba(197, 160, 89, 0.12);
+  color: var(--oro-institucional);
+}
+
+/* =========================================================
+   4. CARRUSEL DE INTEGRANTES (RESPETANDO INTERACCIÓN)
+   ========================================================= */
+#team-carousel {
+  width: 100%;
+  overflow-x: auto !important;
+  overflow-y: hidden;
+  position: relative;
+  display: block;
+  cursor: grab;
+  user-select: none;
+  -webkit-user-select: none;
+  touch-action: pan-y;
+  scrollbar-width: none;
+  -ms-overflow-style: none;
+  scroll-behavior: smooth;
+  scroll-snap-type: x mandatory;
+  scroll-padding-inline: 0;
+  overscroll-behavior-x: contain;
+  -webkit-overflow-scrolling: touch;
+}
+#team-carousel::-webkit-scrollbar {
+  display: none;
+}
+#team-track {
+  display: flex;
+  gap: 1.5rem;
+  width: max-content;
+  min-width: max-content;
+  flex-wrap: nowrap;
+  padding-right: 1px;
+}
+#team-track > div.shrink-0 {
+  flex: 0 0 290px !important;
+  width: 290px !important;
+  scroll-snap-align: start;
+  scroll-snap-stop: always;
+  will-change: transform, box-shadow;
+  backface-visibility: hidden;
+  transform: translate3d(0,0,0);
+  transition: transform .32s cubic-bezier(.22,1,.36,1), box-shadow .32s ease, border-color .32s ease;
+}
+#team-track > div.shrink-0:hover {
+  transform: translate3d(0,-7px,0);
+  box-shadow: 0 18px 38px rgba(17, 50, 39, 0.08);
+  border-color: rgba(197, 160, 89, 0.35);
+}
+#team-track > div.shrink-0 img {
+  will-change: transform, filter;
+  transform: scale(1);
+  transition: transform .5s cubic-bezier(.22,1,.36,1), filter .5s ease;
+}
+#team-track > div.shrink-0:hover img {
+  transform: scale(1.045);
+  filter: grayscale(0) contrast(1.05);
+}
+#team-carousel.is-dragging {
+  cursor: grabbing;
+  scroll-behavior: auto;
+  scroll-snap-type: none;
+}
+#team-carousel.is-dragging #team-track > div.shrink-0 {
+  pointer-events: none;
+}
+#carousel-prev,
+#carousel-next {
+  will-change: transform, background-color, box-shadow;
+  transition: transform .2s ease, box-shadow .2s ease, background-color .2s ease;
+}
+#carousel-prev:hover,
+#carousel-next:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 8px 20px rgba(17, 50, 39, 0.08);
+}
+#carousel-prev:active,
+#carousel-next:active {
+  transform: translateY(0) scale(.94);
+}
+#carousel-progress {
+  transform-origin: left center;
+  transition: width .28s cubic-bezier(.22,1,.36,1);
+}
+
+/* =========================================================
+   5. MAPA INTERACTIVO DE MÉXICO
+   ========================================================= */
+#mexico-map {
+  display: block;
+  width: 100%;
+  height: auto;
+  max-width: none;
+  overflow: visible;
+}
+#mexico-map .sm_state {
+  transition: filter 180ms ease, opacity 180ms ease;
+  cursor: pointer;
+}
+#mexico-map .sm_state.state-lift {
+  filter: drop-shadow(0 7px 4px rgba(17, 50, 39, 0.22));
+  opacity: 0.95;
+}
+
+/* Pines de Ubicación en el Mapa (Negro por defecto, Dorado al hacer clic) */
+#mexico-map .sm_location {
+  cursor: pointer !important;
+  outline: none;
+}
+
+#mexico-map .sm_location .pin-shadow {
+  transition: all 0.25s ease;
+  pointer-events: none;
+}
+
+#mexico-map .sm_location .pin-marker {
+  fill: #141716;
+  stroke: #ffffff;
+  stroke-width: 1.2px;
+  stroke-linejoin: round;
+  cursor: pointer;
+  transform-origin: 0 0;
+  transition: transform 0.25s cubic-bezier(0.16, 1, 0.3, 1), fill 0.25s ease, filter 0.25s ease;
+}
+
+#mexico-map .sm_location:hover .pin-marker {
+  fill: #2c3531;
+  transform: scale(1.15);
+  filter: drop-shadow(0 2px 5px rgba(0, 0, 0, 0.35));
+}
+
+#mexico-map .sm_location.is-active .pin-marker {
+  fill: #C5A059 !important;
+  stroke: #ffffff !important;
+  stroke-width: 1.4px !important;
+  transform: scale(1.3) !important;
+  filter: drop-shadow(0 0 6px rgba(197, 160, 89, 0.75)) drop-shadow(0 3px 6px rgba(0, 0, 0, 0.35)) !important;
+}
+
+#mexico-map .sm_location.is-active:hover .pin-marker {
+  fill: #d4af37 !important;
+}
+
+#mexico-map .sm_location:focus .pin-marker {
+  stroke: #C5A059 !important;
+  stroke-width: 1.8px !important;
+}
+
+#mexico-map .sm_location.is-active .pin-shadow {
+  rx: 5.5px;
+  ry: 2.2px;
+  fill: rgba(197, 160, 89, 0.5);
+}
+
+/* Card y Panel Estilo Referencia (Mapa + Ubicación en Grande) */
+.map-split-card {
+  background: #ffffff;
+  border-radius: 28px;
+  border: 1px solid rgba(17, 50, 39, 0.08);
+  box-shadow: 0 10px 30px rgba(17, 50, 39, 0.04);
+}
+
+.map-location-card {
+  position: relative;
+  width: 100%;
+}
+
+.is-animating {
+  animation: mapLocFadeIn 0.32s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+}
+
+@keyframes mapLocFadeIn {
+  0% {
+    opacity: 0;
+    transform: translateY(6px);
+  }
+  100% {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* =========================================================
+   6. PORTAFOLIO Y MODAL DE PROYECTOS
+   ========================================================= */
+#portfolio-grid {
+  display: flex !important;
+  flex-wrap: wrap !important;
+  justify-content: center !important;
+  gap: 1.5rem !important;
+}
+#portfolio-grid .portfolio-item {
+  background: #ffffff;
+  border: 1px solid var(--gris-borde);
+  box-shadow: 0 4px 16px rgba(0, 0, 0, 0.025);
+  border-radius: 22px;
+  overflow: hidden;
+  min-width: 0;
+  width: 100%;
+  flex: 0 0 100%;
+  box-sizing: border-box;
+  transition: transform 0.3s cubic-bezier(0.22, 1, 0.36, 1), box-shadow 0.3s ease, border-color 0.3s ease;
+}
+@media (min-width: 768px) {
+  #portfolio-grid .portfolio-item {
+    width: calc((100% - 1.5rem) / 2) !important;
+    flex: 0 0 calc((100% - 1.5rem) / 2) !important;
+    max-width: calc((100% - 1.5rem) / 2) !important;
+  }
+}
+@media (min-width: 1024px) {
+  #portfolio-grid .portfolio-item {
+    width: calc((100% - 3rem) / 3) !important;
+    flex: 0 0 calc((100% - 3rem) / 3) !important;
+    max-width: calc((100% - 3rem) / 3) !important;
+  }
+}
+#portfolio-grid .portfolio-item:hover {
+  transform: translateY(-6px);
+  box-shadow: 0 16px 36px rgba(17, 50, 39, 0.09);
+  border-color: rgba(197, 160, 89, 0.3);
+}
+
+/* Modal de proyecto con Glassmorphism */
+#project-modal {
+  display: none;
+  opacity: 0;
+  pointer-events: none;
+  visibility: hidden;
+  transition: opacity 0.28s cubic-bezier(0.22, 1, 0.36, 1), visibility 0.28s;
+}
+#project-modal.is-open {
+  display: flex !important;
+  opacity: 1 !important;
+  pointer-events: auto !important;
+  visibility: visible !important;
+}
+#modal-card {
+  background: #ffffff !important;
+  border: 1px solid rgba(255, 255, 255, 0.8);
+  box-shadow: 0 25px 60px -15px rgba(17, 50, 39, 0.25), 0 0 0 1px rgba(0, 0, 0, 0.05);
+  transition: transform 0.32s cubic-bezier(0.22, 1, 0.36, 1), opacity 0.28s ease;
+}
+.modal-thumb {
+  position: relative;
+  flex: 0 0 68px;
+  width: 68px;
+  height: 52px;
+  border-radius: 12px;
+  overflow: hidden;
+  border: 2px solid transparent;
+  cursor: pointer;
+  opacity: 0.65;
+  background: #e4ebe7;
+  padding: 0;
+  transition: transform 0.2s ease, opacity 0.2s ease, border-color 0.2s ease, box-shadow 0.2s ease;
+}
+.modal-thumb:hover {
+  opacity: 1;
+  transform: translateY(-2px);
+  box-shadow: 0 4px 12px rgba(17, 50, 39, 0.15);
+}
+.modal-thumb.is-active {
+  opacity: 1;
+  border-color: var(--verde-nopal);
+  box-shadow: 0 0 0 2px rgba(17, 50, 39, 0.2), 0 4px 12px rgba(17, 50, 39, 0.2);
+  transform: translateY(-2px);
+}
+.modal-thumb img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  pointer-events: none;
+}
+
+/* =========================================================
+   7. BOTÓN FLOTANTE PERSISTENTE DE WHATSAPP
+   ========================================================= */
+.whatsapp-floating-wrap {
+  position: fixed;
+  bottom: 24px;
+  right: 24px;
+  z-index: 90;
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+
+.whatsapp-label-pill {
+  padding: 0.5rem 1rem;
+  border-radius: 999px;
+  background: rgba(255, 255, 255, 0.92);
+  backdrop-filter: blur(16px);
+  -webkit-backdrop-filter: blur(16px);
+  border: 1px solid rgba(255, 255, 255, 0.85);
+  box-shadow: 0 8px 24px rgba(17, 50, 39, 0.12);
+  color: var(--tinta);
+  font-size: 0.8rem;
+  font-weight: 600;
+  letter-spacing: -0.01em;
+  user-select: none;
+  pointer-events: none;
+  animation: pillFadeIn 0.5s ease backwards;
+}
+
+.whatsapp-floating-btn {
+  width: 58px;
+  height: 58px;
+  border-radius: 50%;
+  background-color: #25D366;
+  color: #ffffff;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  box-shadow: 0 10px 28px rgba(37, 211, 102, 0.38);
+  transition: transform 0.25s cubic-bezier(0.16, 1, 0.3, 1), box-shadow 0.25s ease;
+  text-decoration: none;
+}
+
+.whatsapp-floating-btn:hover {
+  transform: scale(1.08) translateY(-2px);
+  box-shadow: 0 14px 34px rgba(37, 211, 102, 0.48);
+}
+
+.whatsapp-floating-btn:active {
+  transform: scale(0.95);
+}
+
+/* =========================================================
+   8. ANIMACIONES Y KEYFRAMES
+   ========================================================= */
+@keyframes heroGlowBreathe {
+  0% { transform: translate(-50%, -50%) scale(0.95); opacity: 0.7; }
+  100% { transform: translate(-50%, -50%) scale(1.05); opacity: 1; }
+}
+
+@keyframes heroLogoEntrance {
+  0% { opacity: 0; transform: translateY(24px) scale(0.96); }
+  100% { opacity: 1; transform: translateY(0) scale(1); }
+}
+
+@keyframes heroLogoFloat {
+  0% { transform: translateY(0); }
+  100% { transform: translateY(-8px); }
+}
+
+@keyframes heroTextEntrance {
+  0% { opacity: 0; transform: translateY(18px); }
+  100% { opacity: 1; transform: translateY(0); }
+}
+
+@keyframes heroFadeIn {
+  0% { opacity: 0; }
+  100% { opacity: 1; }
+}
+
+@keyframes heroScrollWheel {
+  0% { opacity: 1; transform: translateY(0); }
+  50% { opacity: 0.2; transform: translateY(10px); }
+  100% { opacity: 0; transform: translateY(14px); }
+}
+
+@keyframes heroChevronPulse {
+  0%, 100% { transform: translateY(0); opacity: 0.7; }
+  50% { transform: translateY(4px); opacity: 1; }
+}
+
+@keyframes drawerSlideDown {
+  0% { opacity: 0; transform: translateY(-10px); }
+  100% { opacity: 1; transform: translateY(0); }
+}
+
+@keyframes pillFadeIn {
+  0% { opacity: 0; transform: translateX(8px); }
+  100% { opacity: 1; transform: translateX(0); }
+}
+
+/* =========================================================
+   9. RESPONSIVE Y ACCESIBILIDAD
+   ========================================================= */
+/* =========================================================
+   9. RESPONSIVE Y MOBILE FIRST (UI/UX PRO MAX)
+   Optimización para celulares (320px - 640px) y tablets (641px - 1023px)
+   ========================================================= */
+@media (max-width: 1023px) {
+  .navbar-mobile-btn {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 44px;
+    height: 44px;
+    border-radius: 12px;
+  }
+}
+
+@media (max-width: 768px) {
+  /* Reducción armónica de espaciado vertical en secciones para teléfonos */
+  .section-white,
+  .section-gray {
+    padding-top: 4rem !important;
+    padding-bottom: 4rem !important;
+  }
+
+  .clean-card-title,
+  #modal-title {
+    word-break: break-word;
+  }
+}
+
+@media (max-width: 640px) {
+  /* 1. Barra de Navegación Flotante en Celulares */
+  #navbar {
+    width: calc(100% - 24px) !important;
+    height: 58px !important;
+    top: 10px !important;
+    border-radius: 16px !important;
+  }
+  .navbar-container {
+    padding: 0 0.85rem !important;
+  }
+  .navbar-logo {
+    height: 38px !important;
+  }
+  .navbar-brand-acronym {
+    font-size: 1.1rem !important;
+  }
+
+  /* Menú Desplegable Móvil con Scrolleabilidad Segura */
+  .mobile-drawer-glass {
+    top: calc(100% + 6px) !important;
+    border-radius: 18px !important;
+    padding: 1rem 0.75rem !important;
+    max-height: calc(100dvh - 80px) !important;
+    overflow-y: auto !important;
+    -webkit-overflow-scrolling: touch;
+    box-shadow: 0 20px 48px rgba(11, 32, 25, 0.2) !important;
+  }
+  .mobile-nav-link {
+    font-size: 0.92rem !important;
+    padding: 0.85rem 1rem !important;
+    min-height: 44px !important;
+    display: flex !important;
+    align-items: center !important;
+    border-radius: 12px !important;
+  }
+
+  /* 2. Pantalla Hero Inmersiva en Móvil */
+  #hero {
+    padding: 1.5rem 1rem !important;
+    min-height: 100dvh !important;
+    justify-content: center !important;
+  }
+  .hero-logo-img {
+    width: min(180px, 50vw) !important;
+    max-width: 190px !important;
+    margin-bottom: 0.35rem !important;
+  }
+  .hero-gold-title {
+    font-size: 0.68rem !important;
+    letter-spacing: 0.14em !important;
+    line-height: 1.35 !important;
+    padding: 0 0.5rem !important;
+  }
+  .hero-white-subtitle {
+    font-size: 1.5rem !important;
+    line-height: 1.18 !important;
+    margin-top: 0.35rem !important;
+    padding: 0 0.5rem !important;
+  }
+  .hero-gold-divider {
+    width: 36px !important;
+    margin-top: 0.75rem !important;
+  }
+  .hero-scroll-btn {
+    bottom: 14px !important;
+    gap: 4px !important;
+  }
+  .hero-scroll-text {
+    font-size: 0.62rem !important;
+    letter-spacing: 0.16em !important;
+  }
+  .hero-scroll-mouse {
+    width: 18px !important;
+    height: 28px !important;
+  }
+
+  /* 3. Sección Quiénes Somos */
+  .social-pill {
+    padding: 0.55rem 0.9rem !important;
+    font-size: 0.8rem !important;
+  }
+
+  /* 4. Tarjetas Limpias de Servicios */
+  .clean-card {
+    padding: 1.5rem 1.25rem !important;
+    border-radius: 18px !important;
+  }
+  .clean-card-icon {
+    width: 44px !important;
+    height: 44px !important;
+    border-radius: 12px !important;
+    margin-bottom: 1rem !important;
+  }
+  .clean-card-title {
+    font-size: 1.12rem !important;
+    margin-bottom: 0.5rem !important;
+  }
+  .clean-card-text {
+    font-size: 0.88rem !important;
+    line-height: 1.55 !important;
+    margin-bottom: 1.25rem !important;
+  }
+
+  /* 5. Carrusel de Integrantes (Con affordance de borde visible) */
+  #team-carousel {
+    padding-left: 0.25rem !important;
+    padding-right: 0.25rem !important;
+    scroll-padding: 0.25rem !important;
+    -webkit-overflow-scrolling: touch;
+  }
+  #team-track > div.shrink-0 {
+    flex-basis: 78vw !important;
+    width: 78vw !important;
+    max-width: 300px !important;
+    padding: 1.25rem !important;
+    border-radius: 18px !important;
+  }
+
+  /* 6. Portafolio y Tarjetas */
+  #portfolio-grid .portfolio-item {
+    border-radius: 18px !important;
+  }
+  #portfolio-grid .portfolio-item .w-full.h-64 {
+    height: 13rem !important;
+  }
+  #portfolio-grid .portfolio-item .p-6 {
+    padding: 1.2rem !important;
+  }
+
+  /* 7. Modal de Proyecto */
+  #project-modal {
+    padding: 0.75rem !important;
+  }
+  #modal-card {
+    border-radius: 20px !important;
+    max-height: 90dvh !important;
+  }
+
+  /* 8. Formulario de Contacto (Prevención de auto-zoom en iOS Safari) */
+  #contact-form input,
+  #contact-form textarea {
+    font-size: 16px !important; /* Estándar WCAG/iOS para no disparar zoom forzado */
+    padding: 0.75rem 0.95rem !important;
+    border-radius: 12px !important;
+  }
+  #btn-whatsapp-submit {
+    min-height: 48px !important;
+    padding: 0.85rem 1.25rem !important;
+    font-size: 0.92rem !important;
+  }
+
+  /* 9. Botón Flotante Persistente de WhatsApp */
+  .whatsapp-floating-wrap {
+    bottom: 16px !important;
+    right: 16px !important;
+    z-index: 100 !important;
+  }
+  .whatsapp-floating-btn {
+    width: 48px !important;
+    height: 48px !important;
+  }
+  .whatsapp-label-pill {
+    display: none !important;
+  }
+
+  /* 10. Banner de Cookies en Celular */
+  .cookie-banner-glass {
+    left: 10px !important;
+    right: 10px !important;
+    bottom: 10px !important;
+    width: auto !important;
+    max-width: none !important;
+    padding: 0.95rem 1.1rem !important;
+    border-radius: 16px !important;
+  }
+  .cookie-banner-actions {
+    width: 100% !important;
+    display: flex !important;
+    gap: 8px !important;
+    margin-top: 0.75rem !important;
+  }
+  .cookie-btn-primary,
+  .cookie-btn-secondary {
+    flex: 1 !important;
+    min-height: 42px !important;
+    display: inline-flex !important;
+    align-items: center !important;
+    justify-content: center !important;
+    padding: 0.5rem 0.5rem !important;
+    font-size: 0.72rem !important;
+    text-align: center !important;
+  }
+}
+
+/* Accesibilidad: Reducción de transparencia */
+@media (prefers-reduced-transparency: reduce) {
+  #navbar {
+    background: #ffffff !important;
+    backdrop-filter: none !important;
+    -webkit-backdrop-filter: none !important;
+  }
+  #navbar::before, #navbar::after {
+    display: none !important;
+  }
+  .mobile-drawer-glass {
+    background: #ffffff !important;
+    backdrop-filter: none !important;
+    -webkit-backdrop-filter: none !important;
+  }
+}
+
+/* Accesibilidad: Reducción de movimiento */
+@media (prefers-reduced-motion: reduce) {
+  *, *::before, *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+    scroll-behavior: auto !important;
+  }
+}
+
+/* =========================================================
+   8. AVISO DE COOKIES (GLASSMORPHISM INTERACTIVO)
+   ========================================================= */
+.cookie-banner-glass {
+  position: fixed;
+  bottom: 24px;
+  left: 24px;
+  max-width: 440px;
+  width: calc(100% - 48px);
+  z-index: 999;
+  background: rgba(255, 255, 255, 0.94);
+  backdrop-filter: blur(20px) saturate(180%);
+  -webkit-backdrop-filter: blur(20px) saturate(180%);
+  border: 1px solid rgba(255, 255, 255, 0.9);
+  border-radius: 20px;
+  box-shadow: 0 16px 40px rgba(11, 32, 25, 0.16);
+  padding: 1.25rem 1.35rem;
+  box-sizing: border-box;
+  animation: cookieSlideUp 0.35s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+}
+
+@keyframes cookieSlideUp {
+  from {
+    transform: translateY(100%);
+    opacity: 0;
+  }
+  to {
+    transform: translateY(0);
+    opacity: 1;
+  }
+}
+
+.cookie-btn-primary {
+  background: var(--verde-nopal);
+  color: #ffffff;
+  font-size: 0.75rem;
+  font-weight: 600;
+  letter-spacing: 0.05em;
+  text-transform: uppercase;
+  padding: 0.55rem 1.15rem;
+  border-radius: 999px;
+  border: none;
+  cursor: pointer;
+  transition: all 0.2s ease;
+}
+
+.cookie-btn-primary:hover {
+  background: var(--verde-nopal-surface);
+  transform: translateY(-1px);
+}
+
+.cookie-btn-secondary {
+  background: transparent;
+  color: var(--tinta-suave);
+  font-size: 0.75rem;
+  font-weight: 600;
+  letter-spacing: 0.05em;
+  text-transform: uppercase;
+  padding: 0.55rem 1rem;
+  border-radius: 999px;
+  border: 1px solid rgba(0, 0, 0, 0.12);
+  cursor: pointer;
+  transition: all 0.2s ease;
+}
+
+.cookie-btn-secondary:hover {
+  background: rgba(0, 0, 0, 0.04);
+  color: var(--tinta);
+}
+
+
+/* =========================================================
+   SISTEMA DE ANIMACIONES DE GAMA ALTA Y NAVEGACIÓN FLUIDA
+   Scroll reveals · Parallax · Scroll progress · Microinteracciones
+   ========================================================= */
+
+/* 1. Barra de progreso de lectura (Gama alta, borde inferior del navbar) */
+.navbar-scroll-progress {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  height: 2.5px;
+  width: 0%;
+  background: linear-gradient(90deg, #C5A059 0%, #D4AF37 50%, #F3E5AB 100%);
+  border-bottom-left-radius: 20px;
+  border-bottom-right-radius: 20px;
+  box-shadow: 0 0 10px rgba(197, 160, 89, 0.7);
+  pointer-events: none;
+  z-index: 10;
+  transition: width 0.08s linear;
+}
+
+/* 2. Estado activo en ScrollSpy para los enlaces del navbar */
+.nav-link.active {
+  color: var(--verde-nopal) !important;
+  font-weight: 600 !important;
+}
+.nav-link.active::after {
+  width: 80% !important;
+  background-color: var(--oro-institucional) !important;
+  box-shadow: 0 0 8px rgba(197, 160, 89, 0.45);
+}
+
+.mobile-nav-link.active {
+  color: var(--verde-nopal) !important;
+  font-weight: 600 !important;
+  background: rgba(17, 50, 39, 0.06) !important;
+  border-left: 3px solid var(--oro-institucional);
+  padding-left: 1.15rem !important;
+}
+
+/* 3. Fondos Parallax de Secciones */
+.section-parallax-bg {
+  position: absolute;
+  inset: -15% -5%;
+  pointer-events: none;
+  z-index: 0;
+  will-change: transform;
+  opacity: 0.75;
+  transition: transform 0.1s cubic-bezier(0, 0, 0.2, 1);
+}
+
+.section-white .section-parallax-bg {
+  background:
+    radial-gradient(ellipse at 85% 20%, rgba(197, 160, 89, 0.05) 0%, transparent 55%),
+    radial-gradient(ellipse at 15% 80%, rgba(17, 50, 39, 0.035) 0%, transparent 60%);
+}
+
+.section-gray .section-parallax-bg {
+  background:
+    radial-gradient(ellipse at 15% 15%, rgba(197, 160, 89, 0.055) 0%, transparent 55%),
+    radial-gradient(ellipse at 85% 85%, rgba(17, 50, 39, 0.04) 0%, transparent 60%);
+}
+
+.hero-parallax-bg {
+  position: absolute;
+  inset: -20%;
+  background: radial-gradient(circle at 50% 45%, rgba(197, 160, 89, 0.12) 0%, rgba(27, 77, 59, 0.22) 45%, transparent 75%);
+  pointer-events: none;
+  z-index: 1;
+  will-change: transform;
+}
+
+/* 4. Motor de Scroll Reveal (Fade-ins suaves y fluidos) */
+.reveal-on-scroll {
+  opacity: 0;
+  transform: translate3d(0, 26px, 0);
+  transition: opacity 0.72s cubic-bezier(0.16, 1, 0.3, 1),
+              transform 0.72s cubic-bezier(0.16, 1, 0.3, 1);
+  will-change: opacity, transform;
+}
+
+.reveal-on-scroll.is-revealed {
+  opacity: 1;
+  transform: translate3d(0, 0, 0);
+  will-change: auto;
+}
+
+.reveal-scale {
+  opacity: 0;
+  transform: scale(0.96) translate3d(0, 18px, 0);
+  transition: opacity 0.78s cubic-bezier(0.16, 1, 0.3, 1),
+              transform 0.78s cubic-bezier(0.16, 1, 0.3, 1);
+  will-change: opacity, transform;
+}
+
+.reveal-scale.is-revealed {
+  opacity: 1;
+  transform: scale(1) translate3d(0, 0, 0);
+  will-change: auto;
+}
+
+/* Delays escalonados (Stagger) */
+.stagger-1 { transition-delay: 70ms; }
+.stagger-2 { transition-delay: 140ms; }
+.stagger-3 { transition-delay: 210ms; }
+.stagger-4 { transition-delay: 280ms; }
+.stagger-5 { transition-delay: 350ms; }
+.stagger-6 { transition-delay: 420ms; }
+
+/* Microinteracciones de botones de gama alta */
+.btn-tactile,
+.nav-link-cta,
+.portfolio-filter-btn {
+  transition: transform 0.2s cubic-bezier(0.16, 1, 0.3, 1),
+              box-shadow 0.2s ease,
+              background-color 0.2s ease,
+              color 0.2s ease !important;
+}
+
+.btn-tactile:active,
+.nav-link-cta:active {
+  transform: scale(0.96) !important;
+}
+
+/* Reducción de movimiento por accesibilidad */
+@media (prefers-reduced-motion: reduce) {
+  .reveal-on-scroll,
+  .reveal-scale {
+    opacity: 1 !important;
+    transform: none !important;
+    transition: none !important;
+  }
+  .section-parallax-bg,
+  .hero-parallax-bg {
+    transform: none !important;
+  }
+  .navbar-scroll-progress {
+    display: none !important;
+  }
+}
